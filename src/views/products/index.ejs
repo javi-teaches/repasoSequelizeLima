@@ -1,0 +1,17 @@
+<%- include('../partials/head')  %> 
+	<h1>Listado de Productos</h1>
+	<% if (products.length === 0) { %>
+		<h5>No hay productos para mostrar</h5>
+	<% } else { %>
+		<ul>
+			<% products.forEach(oneProduct => { %>
+			<li>
+				<b>Nombre:</b> <%= oneProduct.name %> <br>  
+				<b>Precio:</b> $<%= oneProduct.getRoundPrice() %> <br>
+				<a href="/products/<%= oneProduct.id %>">ver detalle</a>
+				<hr>
+			</li>
+			<% }) %>
+		</ul>
+	<% } %>
+<%- include('../partials/footer')  %>

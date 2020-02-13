@@ -1,0 +1,40 @@
+<%- include('../partials/head')  %>
+	<h1>Crear un producto</h1>
+	<form action="/products/create" method="POST">
+		<div>
+			<label>Nombre:</label><br>
+			<input type="text" name="name">
+			<br><br>
+		</div>
+		<div>
+			<label>Precio:</label><br>
+			<input type="text" name="price">
+			<br><br>
+		</div>
+		<div>
+			<label>Imagen:</label><br>
+			<input type="file" name="image">
+			<br><br>
+		</div>
+		<div>
+			<label>Marca:</label><br>
+			<select name="brandId">
+				<option value="">Elegí una marca</option>
+				<% brands.forEach(oneBrand => { %>
+				<option value="<%= oneBrand.id %>"><%= oneBrand.name %></option>
+				<% }) %>
+			</select>
+			<br><br>
+		</div>
+		<div>
+			<label>Categorías:</label>
+			<select name="categories" multiple>
+				<option value="">Elegí varias categorías</option>
+				<% categories.forEach(oneCategory => { %>
+				<option value="<%= oneCategory.id %>"><%= oneCategory.name %></option>
+				<% }) %>
+			</select>
+		</div>
+		<button type="submit">Guardar</button>
+	</form>
+<%- include('../partials/footer')  %>

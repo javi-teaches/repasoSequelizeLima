@@ -1,0 +1,19 @@
+<%- include('../partials/head')  %>
+	<h1>Detalle de: <%= product.name %>  </h1>
+	<p>Precio: <%= product.price %> </p>
+	<p>Marca: <%= product.brand.name %> </p>
+	<% if (product.categories.length > 0) { %>
+		<p>Categorías:</p>
+		<ul>
+			<% product.categories.forEach(oneCategory => { %>
+			<li><%= oneCategory.name %> </li>
+			<% }) %>
+		</ul>
+	<% } %>
+	<hr>
+	<form action="/products/<%= product.id %>?_m=DELETE" method="POST">
+	<h6>¿Querés eliminar este producto?</h6>
+		<button type="submit">Borrar producto</button>
+	</form>
+	
+<%- include('../partials/footer')  %>
